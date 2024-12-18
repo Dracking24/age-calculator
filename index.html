@@ -46,6 +46,13 @@
       const monthDisplay = document.getElementById('month-display');
       const dayDisplay = document.getElementById('day-display');
 
+      if (birthMonth > 12) {
+       return 0
+      }
+      if (birthDay > 31) {
+       return 0
+      }
+      
       let yearDiff = computerYear - birthYear;
       let monthDiff = computerMonth - birthMonth;
       let dayDiff = computerDay - birthDay;
