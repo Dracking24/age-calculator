@@ -19,8 +19,8 @@
       background-color: #fff;
       border-radius: 0 0 100px 0;
       padding: 30px;
-      background-image: url('https://img.icons8.com/nolan/64/flower.png');
-      background-size: 40px;
+      background-image: url(https://img.icons8.com/nolan/64/flower.png);
+      background-size: 100px;
       background-repeat: no-repeat;
       background-position: bottom 20px right 50px;
     }
