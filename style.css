@@ -56,3 +56,40 @@
       color: #854dff;
     }
   
+    @media (max-width:500px) {
+      body {
+        padding: 15px;
+      }
+
+      .container {
+        width: 90%;
+        padding: 15px;
+        height: 250px;
+        margin-left: 15px;
+        background-size: 70px;
+
+      }
+
+      h1 {
+        font-size: 25px;
+      }
+
+      .types {
+        padding-bottom: 20px;
+        width: 100%;
+      }
+
+      .heading {
+        width: 93%;
+      }
+
+      input {
+        height: 30px;
+        width: 60px;
+      }
+
+      .p-month {
+        margin: 0;
+        margin-left: 25px;
+      }
+    }
