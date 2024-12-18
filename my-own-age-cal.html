@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Age Calculator</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #d3e7f0;
+      font-family: poppins;
+      font-size: 20px;
+    }
+
+    .container {
+      width: 500px;
+      height: 350px;
+      background-color: #fff;
+      border-radius: 0 0 100px 0;
+      padding: 30px;
+      background-image: url(images/img_flwr.gif);
+      background-repeat: no-repeat;
+      background-position: bottom 20px right 50px;
+    }
+
+    input {
+      height: 35px;
+      width: 100px;
+      border: 1px solid #e2e2e2;
+      font-size: 20px;
+    }
+
+    .types {
+      width: 75%;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 50px;
+      border-bottom: 1px solid;
+      border-color: #e2e2e2;
+      margin-bottom: 20PX;
+    }
+
+    .heading {
+      width: 63%;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .p-month {
+      margin-left: 25px;
+    }
+
+    span {
+      color: #854dff;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="heading">
+      <p>Day</p>
+      <p class="p-month">Month</p>
+      <p class="p-year">Year</p>
+    </div>
+
+    <div class="types">
+      <input onchange="calculateAge()" type="text" id="day">
+      <input onchange="calculateAge()" type="text" id="month">
+      <input onchange="calculateAge()" type="text" id="year">
+    </div>
+
+    <h1><span id="year-display">--</span>years</h1>
+    <h1><span id="month-display">--</span>months</h1>
+    <h1><span id="day-display">--</span>days</h1>
+
+  </div>
+
+
+  <script>
+
+    function calculateAge() {
+      const birthDay = parseInt(document.getElementById('day').value, 10);
+      const birthMonth = parseInt(document.getElementById('month').value, 10);
+      const birthYear = parseInt(document.getElementById('year').value, 10);
+
+      const computerDate = new Date();
+      const computerYear = computerDate.getFullYear();
+      const computerMonth = computerDate.getMonth() + 1; 
+      const computerDay = computerDate.getDate();
+
+      const yearDisplay = document.getElementById('year-display');
+      const monthDisplay = document.getElementById('month-display');
+      const dayDisplay = document.getElementById('day-display');
+
+      let yearDiff = computerYear - birthYear;
+      let monthDiff = computerMonth - birthMonth;
+      let dayDiff = computerDay - birthDay;
+
+      if (dayDiff < 0) {
+
+        const daysInPreviousMonth = new Date(computerYear, computerMonth - 1, 0).getDate();
+        dayDiff += daysInPreviousMonth;
+        monthDiff--; 
+      }
+
+      if (monthDiff < 0) {
+        monthDiff += 12;
+        yearDiff--; 
+      }
+
+      yearDisplay.innerHTML = yearDiff;
+      monthDisplay.innerHTML = monthDiff;
+      dayDisplay.innerHTML = dayDiff;
+    }
+
+
+  </script>
+</body>
+
+</html>
